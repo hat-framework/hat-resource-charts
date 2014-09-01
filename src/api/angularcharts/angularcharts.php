@@ -7,8 +7,9 @@ class angularcharts extends charts{
      */
     public function initChart(){
         echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
-        $this->html->LoadAngular();
-        $this->html->LoadAngular('charts/f-angucharts.min.js');
+        $this->html->LoadBowerComponent(array(
+            'angular/angular.min', 'financee-angularcharts/prod/f-angucharts.min'
+        ));
     }
     
     /**
