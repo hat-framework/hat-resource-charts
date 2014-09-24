@@ -6,7 +6,11 @@ class angularcharts extends charts{
      * load jsapi
      */
     public function initChart(){
-        echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
+        static $inited = false;
+        if(!$inited){
+            echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
+            $inited = true;
+        }
         $this->html->LoadBowerComponent(array(
             'angular/angular.min', 'financee-angularcharts/prod/f-angucharts.min'
         ));
