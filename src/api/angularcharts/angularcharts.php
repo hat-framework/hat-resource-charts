@@ -9,6 +9,10 @@ class angularcharts extends charts{
         static $inited = false;
         if(!$inited){
             echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
+            $this->html->LoadJQueryFunction(
+                     "$('.angularcharts').on('mouseenter', function(){ $(this).children('.angularcharts_help').fadeIn('fast');});"
+                    ."$('.angularcharts').on('mouseleave', function(){ $(this).children('.angularcharts_help').fadeOut('fast');});"
+            );
             $inited = true;
         }
         $this->html->LoadBowerComponent(array(
@@ -45,9 +49,13 @@ class angularcharts extends charts{
         
         $data    = str_replace('"nil"', "null", $this->_data);
         $output = "
-        \n<div id='$id'>".
+        \n<div id='$id' class='angularcharts'>".
             "<div ng-controller='fanguchartCtrl' ng-init='title=\"{$title}\";type=\"$this->_chartType\";dados={$data};'>".
                 "<charts title='title' type='type' localdata='dados' $options></charts>".
+            "</div>".
+            "<div class='angularcharts_help' style='display:none;'> <hr/>". 
+              "<span class='alert-danger'>Para dar zoom</span>: <b>clique</b> com o cursor em um ponto do gráfico <b>e arraste</b> até outro. <br/>".
+              "<span class='alert-warning'>Para resetar o zoom</span>: clique com o <b>botão esquerdo</b> do mouse no gráfico".
             "</div>".
          "</div>\n";
         $this->reset();
