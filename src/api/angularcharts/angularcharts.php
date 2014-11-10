@@ -55,7 +55,7 @@ class angularcharts extends charts{
             "</div>".
             "<div class='angularcharts_help' style='display:none;'> <hr/>". 
               "<span class='alert-danger'>Para dar zoom</span>: <b>clique</b> com o cursor em um ponto do gráfico <b>e arraste</b> até outro. <br/>".
-              "<span class='alert-warning'>Para resetar o zoom</span>: clique com o <b>botão esquerdo</b> do mouse no gráfico".
+              "<span class='alert-warning'>Para resetar o zoom</span>: clique com o <b>botão direito</b> do mouse no gráfico".
             "</div>".
          "</div>\n";
         $this->reset();
